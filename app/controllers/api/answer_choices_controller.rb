@@ -16,8 +16,7 @@ module Api
       if @choice.update_attributes(choice_params)
         render json: @choice
       else
-        render json: @choice.errors.full_messages,
-               status: :unprocessable_entity
+        render json: @choice.errors.full_messages, status: :unprocessable_entity
       end
     end
   
