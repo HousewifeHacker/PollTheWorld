@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :authored_polls,
+            foreign_key: :user_id,
+            class_name: 'Poll'
+  has_many :responses,
+            foreign_key: :respondent_id,
+            class_name: 'Response'
+
   validates :username, :session_token, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
   validates :username, uniqueness: true
