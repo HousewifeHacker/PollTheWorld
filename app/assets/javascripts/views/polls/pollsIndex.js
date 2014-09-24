@@ -3,7 +3,7 @@ PollApp.Views.PollsIndex = Backbone.CompositeView.extend({
   template: JST["polls/index"],
   
   initialize: function() {
-    this.listenTo(this.collection, "sync add", this.addItems);
+    this.listenTo(this.collection, "add", this.addItems);
     this.collection.each(this.addItems.bind(this));
   },
   
