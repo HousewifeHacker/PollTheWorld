@@ -4,9 +4,7 @@ window.PollApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new PollApp.Routers.Router({ 
-      $rootEl: $('#content') 
-    });
+    new PollApp.Routers.Router({ $rootEl: $('#content') });
     Backbone.history.start();
   }
 };
