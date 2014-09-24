@@ -1,13 +1,12 @@
-window.PollTheWorld = {
+window.PollApp = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new PollApp.Routers.Router({ 
+      $rootEl: $('#content') 
+    });
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  PollTheWorld.initialize();
-});
