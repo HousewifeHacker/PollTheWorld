@@ -9,4 +9,4 @@ PollApp.Routers.Router = Backbone.Router.extend({
     "polls/:id": "pollShow",
     "polls/:id/edit": "pollEdit"
   }
-})
+});
