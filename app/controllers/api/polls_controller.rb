@@ -34,7 +34,7 @@ module Api
     
     def show
       @poll = current_user.authored_polls.find(params[:id])
-      render json: @poll
+      render :show
 
     end
     
