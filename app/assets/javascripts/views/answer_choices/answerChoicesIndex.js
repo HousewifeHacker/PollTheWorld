@@ -1,3 +1,4 @@
+/*global PollApp */
 PollApp.Views.AnswerChoicesIndex = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, "add", this.addItems);
@@ -12,7 +13,7 @@ PollApp.Views.AnswerChoicesIndex = Backbone.CompositeView.extend({
   },
   
   render: function() {
-    this.$el.html("<ul id='answer-choices-list'></ul>")
+    this.$el.html("<form id='answer-choices-list'></form><button>Vote</button>");
     this.attachSubviews();
     return this;
   }
