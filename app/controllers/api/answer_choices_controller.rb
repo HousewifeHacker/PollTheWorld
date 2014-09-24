@@ -19,6 +19,12 @@ module Api
         render json: @choice.errors.full_messages, status: :unprocessable_entity
       end
     end
+    
+    def destroy
+      @choice = current_poll.answer_choices.find(params[:id])
+      @choice.try(:destroy)
+      render json: {}
+    end
   
     private
     
