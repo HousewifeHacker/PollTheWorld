@@ -2,7 +2,7 @@ PollApp.Models.Poll = Backbone.Model.extend({
   urlRoot: '/api/polls',
   
   answerChoices: function() {
-    if (!this.answerChoices) {
+    if (!this._answerChoices) {
       this._answerChoices = 
         new PollApp.Collections.AnswerChoices([], { poll: this });
     }
@@ -10,9 +10,9 @@ PollApp.Models.Poll = Backbone.Model.extend({
   },
   
   parse: function(response) {
-    if(response.answerChoices) {
-      this.answerChoices().set(response.answerChoices, { parse: true });
-      delete response.answerChoices;
+    if(response.answer_choices) {
+      this.answerChoices().set(response.answer_choices, { parse: true });
+      delete response.answer_choices;
     }
     
     return response;

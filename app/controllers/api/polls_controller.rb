@@ -35,7 +35,6 @@ module Api
     def show
       @poll = current_user.authored_polls.find(params[:id])
       render :show
-
     end
     
     private
