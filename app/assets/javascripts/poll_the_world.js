@@ -8,4 +8,3 @@ window.PollApp = {
     Backbone.history.start();
   }
 };
-
