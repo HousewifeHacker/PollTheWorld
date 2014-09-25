@@ -1,4 +1,4 @@
-<form action="<%= action %>" method="post" role="form">
+<form action="<%= action %>" class="auth_form" method="post" role="form">
   <input
      name="authenticity_token"
      type="hidden"
@@ -22,5 +22,5 @@
       type="password">
   </div>
 
-  <button class="btn btn-primary"><%= message %></button>
+  <button class="btn btn-primary submit-auth"><%= message %></button>
 </form>

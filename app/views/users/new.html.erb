@@ -5,4 +5,9 @@
         <%= render partial: "form", locals: { action: users_url, message: "Sign Up" } %>
   </div>
   <%= render partial: "guest_login" %>
+  <script>
+  $("button.guest-login").on('click', function() {
+    window.location.href = "<%= new_session_url %>" + "?guest=true"
+  });
+  </script>
 </div>
