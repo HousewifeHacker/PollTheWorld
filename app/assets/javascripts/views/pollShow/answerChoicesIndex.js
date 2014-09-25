@@ -31,7 +31,7 @@ PollApp.Views.AnswerChoicesIndex = Backbone.CompositeView.extend({
     vote.save({}, {
       success: function() {
         PollApp.Collections.responses.add(vote);
-        Backbone.history.navigate("polls/results/" + that.poll.id, { trigger: true });
+        Backbone.history.navigate("polls/" + that.poll.id + "/results", { trigger: true });
       }
     });
   }

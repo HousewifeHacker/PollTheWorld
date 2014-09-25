@@ -7,9 +7,9 @@ PollApp.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "pollsIndex",
     "polls/new": "pollNew",
-    "polls/results/:id": "pollResult",
     "polls/:id": "pollShow",
-    "polls/:id/edit": "pollEdit"
+    "polls/:id/edit": "pollEdit",
+    "polls/:id/results": "pollResult",
   },
   
   pollsIndex: function() {

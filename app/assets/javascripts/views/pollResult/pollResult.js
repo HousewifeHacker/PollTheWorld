@@ -1,6 +1,6 @@
 /*global PollApp, JST */
 PollApp.Views.PollResult = Backbone.CompositeView.extend({
-  template: JST['polls/show'],
+  template: JST['results/show'],
   
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
