@@ -2,7 +2,7 @@
   <div class="col-xs-4 col-xs-offset-1">
     <h1>Sign In</h1>
 
-<%= render partial: "users/form", action: session_url, message: "Log In" %>
+<%= render partial: "users/form", locals: {action: session_url, message: "Log In"} %>
 
   </div>
 </div>
