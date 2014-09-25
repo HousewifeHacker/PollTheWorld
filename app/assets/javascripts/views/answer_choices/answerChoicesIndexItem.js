@@ -1,6 +1,4 @@
-PollApp.Views.AnswerChoicesIndexItem = Backbone.View.extend({
-  //tagName: 'li',
-  
+PollApp.Views.AnswerChoicesIndexItem = Backbone.View.extend({ 
   template: JST['answer_choices/indexItem'],
   
   initialize: function() {
