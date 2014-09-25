@@ -1,6 +1,6 @@
 /*global PollApp, JST */
 PollApp.Views.ResultIndex = Backbone.CompositeView.extend({
-  template: JST["answer_choices/index"],
+  template: JST["results/index"],
   
   initialize: function() {
     this.listenTo(this.collection, "add", this.addItems);
