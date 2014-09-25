@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+admin = User.create(username: "jessie", password: "jessie")
+guest = User.create(username: "guest", password: "password")
+
+q1 = admin.authored_polls.create(body: "Where would you rather visit?")
+q1.answer_choices.create(body: "Paris, France")
+q1.answer_choices.create(body: "Rome, Italy")
+q1.answer_choices.create(body: "Istanbul, Turkey")
+
+q2 = admin.authored_polls.create(body: "Are you feeling happy?")
+q2.answer_choices.create(body: "Yes")
+q2.answer_choices.create(body: "No" )
+q2.answer_choices.create(body: "Close enough")
+
+q3 = admin.authored_polls.create(body: "Which is the lesser evil?")
+q3.answer_choices.create(body: "Vanity")
+q3.answer_choices.create(body: "Greed")
+q3.answer_choices.create(body: "Lust")
