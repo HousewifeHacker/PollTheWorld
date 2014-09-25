@@ -1,5 +1,5 @@
 /*global PollApp, JST */
-PollApp.Views.PollShow = Backbone.CompositeView.extend({
+PollApp.Views.PollResult = Backbone.CompositeView.extend({
   template: JST['polls/show'],
   
   initialize: function() {
@@ -9,12 +9,11 @@ PollApp.Views.PollShow = Backbone.CompositeView.extend({
   },
   
   addAnswerChoices: function() {
-    var view = new PollApp.Views.AnswerChoicesIndex({
+    var view = new PollApp.Views.ResultIndex({
       collection: this.model.answerChoices()
     });
     this.addSubview('#poll-choices', view);
   },
-  
   render: function() {
     var renderedContent = this.template({ poll: this.model });
     this.$el.html(renderedContent);
