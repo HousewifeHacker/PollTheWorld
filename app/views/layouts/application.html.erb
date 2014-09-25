@@ -40,7 +40,6 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <!-- <li><%= link_to "Profile", current_user %></li> -->
                 <li><%= link_to "Sign Out", session_url, :method => :delete %></li>
               </ul>
             </div>
@@ -55,7 +54,7 @@
               </button>
             <ul class="dropdown-menu">
               <!-- <li><a href="javascript:void(0)" id="contact-link"> -->
-              <li><%= link_to "Sign In", "javascript:;", id: "sign-in-button" %></li>
+              <li><%= link_to "Sign In", new_session_url %></li>
               <li><%= link_to "Sign up", new_user_url %></li>
             </ul>
             </div>
@@ -82,7 +81,7 @@
     </div>
     
     
-    <div class="modal fade" id="signIn-modal">
+    <!-- <div class="modal fade" id="signIn-modal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -90,10 +89,10 @@
             <h4 class="modal-title">Sign In</h4>
           </div>
           <div class="modal-body">
-            <%= 
-              render "users/form", 
-              action: session_url, 
-              message: "Log In" 
+            <%=
+              render "users/form",
+              action: session_url,
+              message: "Log In"
             %>
           </div>
           <div class="modal-footer">
@@ -101,35 +100,9 @@
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+      <!-- </div> --><!-- /.modal-dialog -->
+    <!-- </div> --><!-- /.modal -->
 
   </body>
 
-
-
-
-
-
-<!-- <body>
-
-<% if flash[:errors] %>
-  <%= flash[:errors].join("<br>").html_safe %>
-<% end %>
-
-<% if signed_in? %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-  <%= link_to "Sign Up", new_user_url %>
-  <%= link_to "Log In", new_session_url %>
-<% end %>
-
-
-
-
-<%= yield %>
-
-
-
-</body> -->
 </html>
