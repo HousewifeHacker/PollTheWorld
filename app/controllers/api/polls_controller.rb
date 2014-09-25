@@ -28,12 +28,12 @@ module Api
     end
 
     def index
-      @polls = current_user.authored_polls
+      @polls = Poll.all
       render json: @polls
     end
     
     def show
-      @poll = current_user.authored_polls.find(params[:id])
+      @poll = Poll.find(params[:id])
       render :show
     end
     
