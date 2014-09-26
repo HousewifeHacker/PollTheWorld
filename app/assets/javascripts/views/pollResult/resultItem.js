@@ -2,7 +2,7 @@ PollApp.Views.ResultItem = Backbone.View.extend({
   template: JST['results/item'],
   
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "update", this.render);
   },
   
   render: function() {

@@ -17,7 +17,9 @@ PollApp.Views.PollResult = Backbone.CompositeView.extend({
   },
   
   addChart: function() {
-    var view = new PollApp.Views.Chart();
+    var view = new PollApp.Views.Chart({
+      collection: this.model.answerChoices()
+    });
     this.addSubview('#result-chart', view);
   },
   

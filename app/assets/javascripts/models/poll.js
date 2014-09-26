@@ -1,3 +1,4 @@
+/*global PollApp */
 PollApp.Models.Poll = Backbone.Model.extend({
   urlRoot: '/api/polls',
   
@@ -16,5 +17,14 @@ PollApp.Models.Poll = Backbone.Model.extend({
     }
     
     return response;
+  },
+  
+  bodies: function() {
+    return this.answerChoices().bodies()
+  },
+  
+  responses_counts: function() {
+    return this.answerChoices().responses_counts()
   }
+  
 });
