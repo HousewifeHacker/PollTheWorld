@@ -8,8 +8,7 @@ PollApp.Routers.Router = Backbone.Router.extend({
     "": "pollsIndex",
     "polls/new": "pollNew",
     "polls/:id": "pollShow",
-    "polls/:id/edit": "pollEdit",
-    "polls/:id/results": "pollResult",
+    "polls/:id/results": "pollResult"
   },
   
   pollsIndex: function() {
@@ -20,10 +19,9 @@ PollApp.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
   
-  pollResult: function(id) {
-    var model = PollApp.Collections.polls.getOrFetch(id);
-    var view = new PollApp.Views.PollResult({
-      model: model
+  pollNew: function() {
+    var view = new PollApp.Views.PollNew({
+      model: new PollApp.Models.Poll()
     });
     this._swapView(view);
   },
@@ -31,6 +29,14 @@ PollApp.Routers.Router = Backbone.Router.extend({
   pollShow: function(id) {
     var model = PollApp.Collections.polls.getOrFetch(id);
     var view = new PollApp.Views.PollShow({
+      model: model
+    });
+    this._swapView(view);
+  },
+  
+  pollResult: function(id) {
+    var model = PollApp.Collections.polls.getOrFetch(id);
+    var view = new PollApp.Views.PollResult({
       model: model
     });
     this._swapView(view);
