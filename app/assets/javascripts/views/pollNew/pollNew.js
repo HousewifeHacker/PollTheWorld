@@ -4,7 +4,8 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
 
   events: {
     'click .new-choice' : 'addAnswerChoice',
-    'click .remove-choice' : 'removeAnswerChoice'
+    'click .remove-choice' : 'removeAnswerChoice',
+    'click .submit-poll' : 'createPoll'
   },
   
   initialize: function() {
@@ -12,10 +13,8 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     this.addAnswerChoice();
   },
 
-  addAnswerChoice: function(event) {
-    var view = new PollApp.Views.AnswerChoiceForm({
-      pollId: this.model.id
-    });
+  addAnswerChoice: function() {
+    var view = new PollApp.Views.AnswerChoiceForm();
     this.addSubview('#poll-choices', view);
   },
   
@@ -25,11 +24,24 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
   },
   
   render: function() {
-    var renderedContent = this.template({
-      model: this.model
-    });
+    var renderedContent = this.template();
     this.$el.html(renderedContent);
     this.attachSubviews();
     return this;
+  },
+  
+  createPoll: function() {
+    var that = this;
+    var poll = this.collection.create({
+      body: this.$('#poll_body').val()
+    }, { wait: true, success: function() {
+      that.$('.choice-form-input').each( function(idx, el) {
+        poll.answerChoices().create({
+          poll_id: poll.id,
+          body: $(el).val()
+        }, { wait: true });
+      });
+      Backbone.history.navigate("/", { trigger: true });
+    }});
   }
 });
