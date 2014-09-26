@@ -6,7 +6,7 @@ PollApp.Collections.AnswerChoices = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.poll = options.poll;
   },
-  
+
   getOrFetch: function(id) {
     var answerChoice = this.get(id), 
         answerChoices = this;
@@ -40,3 +40,5 @@ PollApp.Collections.AnswerChoices = Backbone.Collection.extend({
     return responsesCounts;
   }
 });
+
+// PollApp.Collections.answerChoices = new PollApp.Collections.AnswerChoices();
