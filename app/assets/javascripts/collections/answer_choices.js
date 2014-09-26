@@ -22,5 +22,21 @@ PollApp.Collections.AnswerChoices = Backbone.Collection.extend({
       });
     }
     return answerChoice;
+  },
+  
+  bodies: function() {
+    var bodies = [];
+    this.each(function(choice) {
+      bodies.push(choice.get("body"));
+    });
+    return bodies;
+  },
+  
+  responses_counts: function() {
+    var responsesCounts = [];
+    this.each(function(choice) {
+      responsesCounts.push(choice.get("responses_count") || 0);
+    });
+    return responsesCounts;
   }
 });
