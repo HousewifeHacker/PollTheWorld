@@ -3,7 +3,7 @@ PollApp.Views.Chart = Backbone.View.extend({
   template: JST["results/chart"],
   
   initialize: function() {
-    this.listenTo(this.collection, "add", this.render);
+    this.listenTo(this.collection, "add change", this.render);
   },
   
   render: function() {

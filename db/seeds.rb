@@ -17,10 +17,10 @@ q3.answer_choices.create!(body: "Greed")
 q3.answer_choices.create!(body: "Lust")
 
 q4 = admin.authored_polls.create!(body: "What is your talent?")
+q4.answer_choices.create!(body: "Other")
 q4.answer_choices.create!(body: "Singing")
 q4.answer_choices.create!(body: "Dancing")
 q4.answer_choices.create!(body: "Acting")
-q4.answer_choices.create!(body: "Other")
 
 q5 = admin.authored_polls.create!(body: "Agree or Disagree: The United States should increase its use of Ethanol")
 q5.answer_choices.create!(body: "Disagree")
