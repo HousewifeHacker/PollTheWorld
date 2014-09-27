@@ -1,16 +1,21 @@
-<div class="row">
-  <div id="poll-container" class="col-xs-4 col-xs-offset-4">
-    <a href="#">Back to Polls</a>
-    <form id="poll-new">
-      <div id="poll-header">
-        <h2>Create A Poll</h2>
-        <label for="poll_body">Question:</label><input type="text" id="poll_body" name="poll[body]" autofocus>
-      </div>
-  
-      <div id="poll-choices">
-      </div>
+<div id="poll-container" class="col-xs-6 col-xs-offset-3">
+  <a href="#">Back to Polls</a>
+  <div id="poll-header">
+    <h2>Create A Poll</h2>
+  </div> <!-- end of poll header --> 
+
+  <form id="poll-new">
+    <div class="form-group">
+      <label for="poll_body" class="col-sm-3 control-label">Question:</label>
+      <div class="col-sm-9">
+        <input type="text" id="poll_body" class="form-control" name="poll[body]" autofocus>
+      </div> <!-- end of poll body col -->
+    </div> <!-- end of form group -->
+    <div class="col-sm-1">&nbsp;</div>
+    <div id="poll-choices" class="form-group col-sm-11">
+    </div>
   </form>
-  <button class="btn btn-primary new-choice">Add Answer Choice</button>
-  <button class="btn btn-primary submit-poll">Submit</button>
-  </div>
+    <button class="btn btn-primary new-choice">Add Answer Choice</button>
+    <button class="btn btn-primary submit-poll">Submit</button>
+
 </div>

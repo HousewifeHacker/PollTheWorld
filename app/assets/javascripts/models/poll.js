@@ -7,9 +7,10 @@ PollApp.Models.Poll = Backbone.Model.extend({
       this._answerChoices = 
         new PollApp.Collections.AnswerChoices([], { poll: this });
     }
+
     return this._answerChoices;
   },
-  
+
   parse: function(response) {
     if(response.answer_choices) {
       this.answerChoices().set(response.answer_choices, { parse: true });
@@ -28,6 +29,7 @@ PollApp.Models.Poll = Backbone.Model.extend({
   },
   
   total_responses: function() {
+      console.log("TOTAL RESPONSES", this.answerChoices());
     var sum = 0;
     var counts = this.responses_counts();
     for (var i = 0; i < counts.length; i++) {

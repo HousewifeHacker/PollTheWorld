@@ -29,7 +29,7 @@ module Api
 
     def index
       @polls = Poll.all
-      render json: @polls
+      render :index
     end
     
     def show

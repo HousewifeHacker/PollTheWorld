@@ -4,7 +4,6 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
 
   events: {
     'click .new-choice' : 'addAnswerChoice',
-    'click .remove-choice' : 'removeAnswerChoice',
     'click .submit-poll' : 'createPoll'
   },
   
@@ -16,11 +15,6 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
   addAnswerChoice: function() {
     var view = new PollApp.Views.AnswerChoiceForm();
     this.addSubview('#poll-choices', view);
-  },
-  
-  removeAnswerChoice: function(event) {
-    var view = event.currentTarget.parentElement;
-    this.removeSubview('#poll-choices', view);
   },
   
   render: function() {
