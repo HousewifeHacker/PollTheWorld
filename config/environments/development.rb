@@ -34,4 +34,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  require 'pusher'
+  
+  Pusher.app_id = '90881'
+  Pusher.key    = '619f76792998a71210ac'
+  Pusher.secret = 'd9602d5ddcdc23ac9196'
 end
