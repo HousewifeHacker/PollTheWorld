@@ -20,11 +20,20 @@ PollApp.Models.Poll = Backbone.Model.extend({
   },
   
   bodies: function() {
-    return this.answerChoices().bodies()
+    return this.answerChoices().bodies();
   },
   
   responses_counts: function() {
-    return this.answerChoices().responses_counts()
+    return this.answerChoices().responses_counts();
+  },
+  
+  total_responses: function() {
+    var sum = 0;
+    var counts = this.responses_counts();
+    for (var i = 0; i < counts.length; i++) {
+      sum += counts[i];
+    }
+    return sum;
   }
   
 });
