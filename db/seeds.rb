@@ -65,4 +65,3 @@ q11.answer_choices.create!(body: "baseball", ord: 3)
 q11.answer_choices.create!(body: "hockey", ord: 6)
 q11.answer_choices.create!(body: "lacrosse", ord: 5)
 q11.answer_choices.create!(body: "wrestling", ord: 4)
-

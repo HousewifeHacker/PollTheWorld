@@ -29,7 +29,6 @@ PollApp.Models.Poll = Backbone.Model.extend({
   },
   
   total_responses: function() {
-      console.log("TOTAL RESPONSES", this.answerChoices());
     var sum = 0;
     var counts = this.responses_counts();
     for (var i = 0; i < counts.length; i++) {
