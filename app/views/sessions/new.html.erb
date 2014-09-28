@@ -7,17 +7,4 @@
   </div>
   
   <%= render partial: "users/guest_login" %>
-  <script>
-  function formFill() {
-      $("#user_username").val("guest");
-      $("#user_password").val("password");
-      $(".submit-auth").click();
-  };
-  
-  if (window.location.toString() === "<%= new_session_url %>" + "?guest=true") {
-    formFill();
-  }
-  
-  $("button.guest-login").on('click', formFill);
-  </script>
 </div>

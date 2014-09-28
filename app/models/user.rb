@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
             class_name: 'Response'
   has_many :answered_polls, through: :responses
 
-  validates :username, :session_token, presence: true
+  validates :session_token, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true, unless: :guest?
   
   attr_reader :password
   after_initialize :ensure_session_token
@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
+  end
+
+  def self.new_guest
+    new { |u| u.guest = true }
   end
 
   protected
