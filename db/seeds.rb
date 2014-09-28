@@ -2,9 +2,9 @@ admin = User.create!(username: "jessie", password: "jessie")
 guest = User.create!(username: "guest", password: "password")
 
 q1 = admin.authored_polls.create!(body: "Where would you rather visit?")
-q1.answer_choices.create!(body: "Istanbul, Turkey")
-q1.answer_choices.create!(body: "Paris, France")
-q1.answer_choices.create!(body: "Rome, Italy")
+q1.answer_choices.create!(body: "Istanbul, Turkey", ord: 0)
+q1.answer_choices.create!(body: "Paris, France", ord: 1)
+q1.answer_choices.create!(body: "Rome, Italy", ord: 2)
 
 q2 = admin.authored_polls.create!(body: "Are you feeling happy?")
 q2.answer_choices.create!(body: "Close enough")

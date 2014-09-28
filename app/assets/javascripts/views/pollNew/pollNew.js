@@ -31,6 +31,7 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     }, { wait: true, success: function() {
       that.$('.choice-form-input').each( function(idx, el) {
         poll.answerChoices().create({
+	  ord: idx,
           poll_id: poll.id,
           body: $(el).val()
         }, { wait: true });

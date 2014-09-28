@@ -38,7 +38,7 @@ module Api
     end
     
     def choice_params
-      params.require(:answer_choice).permit(:poll_id, :body)
+      params.require(:answer_choice).permit(:poll_id, :body, :ord)
     end
   end
 end
