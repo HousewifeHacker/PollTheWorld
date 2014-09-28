@@ -1,4 +1,6 @@
 class Response < ActiveRecord::Base
+  validates :answer_choice_id, :respondent_id, presence: true
+
   belongs_to :answer_choice, dependent: :destroy, counter_cache: true
 
   has_many :respondents, 
