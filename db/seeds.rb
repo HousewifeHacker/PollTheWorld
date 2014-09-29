@@ -1,67 +1,78 @@
 admin = User.create!(username: "jessie", password: "jessie")
 guest = User.create!(username: "guest", password: "password")
 
-q1 = admin.authored_polls.create!(body: "Where would you rather visit?")
-q1.answer_choices.create!(body: "Istanbul, Turkey", ord: 0)
-q1.answer_choices.create!(body: "Paris, France", ord: 1)
-q1.answer_choices.create!(body: "Rome, Italy", ord: 2)
+admin.authored_polls.create!(body: "Where would you rather visit?", answer_choices_attributes: [
+  { body: "Istanbul, Turkey", ord: 0 },
+  { body: "Paris, France", ord: 1 },
+  { body: "Rome, Italy", ord: 2 }
+])
 
-q2 = admin.authored_polls.create!(body: "Are you feeling happy?")
-q2.answer_choices.create!(body: "Close enough", ord: 2)
-q2.answer_choices.create!(body: "Yes", ord: 0)
-q2.answer_choices.create!(body: "No", ord: 1 )
+admin.authored_polls.create!(body: "Are you feeling happy?",  answer_choices_attributes: [
+  { body: "Close enough", ord: 2 },
+  { body: "Yes", ord: 0 },
+  { body: "No", ord: 1 }
+])
 
-q3 = admin.authored_polls.create!(body: "Which is the lesser evil?")
-q3.answer_choices.create!(body: "Vanity", ord: 0)
-q3.answer_choices.create!(body: "Greed", ord: 1)
-q3.answer_choices.create!(body: "Lust", ord: 2)
+admin.authored_polls.create!(body: "Which is the lesser evil?",  answer_choices_attributes: [
+  { body: "Vanity", ord: 0 },
+  { body: "Greed", ord: 1 },
+  { body: "Lust", ord: 2 }
+])
 
-q4 = admin.authored_polls.create!(body: "What is your talent?")
-q4.answer_choices.create!(body: "Other", ord: 3)
-q4.answer_choices.create!(body: "Singing", ord: 0)
-q4.answer_choices.create!(body: "Dancing", ord: 1)
-q4.answer_choices.create!(body: "Acting", ord: 2)
+admin.authored_polls.create!(body: "What is your talent?",  answer_choices_attributes: [
+  { body: "Other", ord: 3 },
+  { body: "Singing", ord: 0 },
+  { body: "Dancing", ord: 1 },
+  { body: "Acting", ord: 2 }
+])
 
-q5 = admin.authored_polls.create!(body: "Agree or Disagree: The United States should increase its use of Ethanol")
-q5.answer_choices.create!(body: "Disagree", ord: 1)
-q5.answer_choices.create!(body: "Agree", ord: 0)
+admin.authored_polls.create!(body: "Agree or Disagree: The United States should increase its use of Ethanol",  answer_choices_attributes: [
+  { body: "Disagree", ord: 1 },
+  { body: "Agree", ord: 0 }
+])
 
-q6 = admin.authored_polls.create!(body: "Cats or Dogs?")
-q6.answer_choices.create!(body: "Dogs", ord: 1)
-q6.answer_choices.create!(body: "Cats", ord: 0)
+admin.authored_polls.create!(body: "Cats or Dogs?",  answer_choices_attributes: [
+  { body: "Dogs", ord: 1 },
+  { body: "Cats", ord: 0 }
+])
 
-q7 = admin.authored_polls.create!(body: "Which text editor do you prefer?")
-q7.answer_choices.create!(body: "Other", ord: 3)
-q7.answer_choices.create!(body: "Emacs", ord: 0)
-q7.answer_choices.create!(body: "Vim", ord: 1)
-q7.answer_choices.create!(body: "Sublime", ord: 2)
+admin.authored_polls.create!(body: "Which text editor do you prefer?",  answer_choices_attributes: [
+  { body: "Other", ord: 3 },
+  { body: "Emacs", ord: 0 },
+  { body: "Vim", ord: 1 },
+  { body: "Sublime", ord: 2 }
+])
 
-q8 = admin.authored_polls.create!(body: "Which came first?")
-q8.answer_choices.create!(body: "The egg", ord: 1)
-q8.answer_choices.create!(body: "The chicken", ord: 0)
+admin.authored_polls.create!(body: "Which came first?",  answer_choices_attributes: [
+  { body: "The egg", ord: 1 },
+  { body: "The chicken", ord: 0 }
+])
 
-q9 = admin.authored_polls.create!(body: "Agree or Disagree: The book is always better than the movie")
-q9.answer_choices.create!(body: "Disagree", ord: 1)
-q9.answer_choices.create!(body: "Agree", ord: 0)
+admin.authored_polls.create!(body: "Agree or Disagree: The book is always better than the movie",  answer_choices_attributes: [
+  { body: "Disagree", ord: 1 },
+  { body: "Agree", ord: 0 }
+])
 
-q10 = admin.authored_polls.create!(body: "What is your favorite color?")
-q10.answer_choices.create!(body: "White", ord: 9)
-q10.answer_choices.create!(body: "Brown", ord: 7)
-q10.answer_choices.create!(body: "Black", ord: 8)
-q10.answer_choices.create!(body: "Pink", ord: 0)
-q10.answer_choices.create!(body: "Red", ord: 1)
-q10.answer_choices.create!(body: "Orange", ord: 2)
-q10.answer_choices.create!(body: "Yellow", ord: 3)
-q10.answer_choices.create!(body: "Green", ord: 4)
-q10.answer_choices.create!(body: "Blue", ord: 5)
-q10.answer_choices.create!(body: "Purple", ord: 6)
+admin.authored_polls.create!(body: "What is your favorite color?",  answer_choices_attributes: [
+  { body: "White", ord: 9 },
+  { body: "Brown", ord: 7 },
+  { body: "Black", ord: 8 },
+  { body: "Pink", ord: 0 },
+  { body: "Red", ord: 1 },
+  { body: "Orange", ord: 2 },
+  { body: "Yellow", ord: 3 },
+  { body: "Green", ord: 4 },
+  { body: "Blue", ord: 5 },
+  { body: "Purple", ord: 6 }
+])
 
-q11 = admin.authored_polls.create!(body: "What is your favorite sport?")
-q11.answer_choices.create!(body: "other", ord: 7)
-q11.answer_choices.create!(body: "football (american)", ord: 1)
-q11.answer_choices.create!(body: "soccer", ord: 0)
-q11.answer_choices.create!(body: "basketball", ord: 2)
-q11.answer_choices.create!(body: "baseball", ord: 3)
-q11.answer_choices.create!(body: "hockey", ord: 6)
-q11.answer_choices.create!(body: "lacrosse", ord: 5)
-q11.answer_choices.create!(body: "wrestling", ord: 4)
+admin.authored_polls.create!(body: "What is your favorite sport?",  answer_choices_attributes: [
+  { body: "other", ord: 7 },
+  { body: "football (american)", ord: 1 },
+  { body: "soccer", ord: 0 },
+  { body: "basketball", ord: 2 },
+  { body: "baseball", ord: 3 },
+  { body: "hockey", ord: 6 },
+  { body: "lacrosse", ord: 5 },
+  { body: "wrestling", ord: 4 }
+])

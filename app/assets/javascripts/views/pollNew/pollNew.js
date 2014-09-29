@@ -12,10 +12,6 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     this.addAnswerChoice();
   },
 
-  errorLog: function() {
-    debugger;
-  },
-
   addAnswerChoice: function() {
     var view = new PollApp.Views.AnswerChoiceForm();
     this.addSubview('#poll-choices', view);
@@ -30,23 +26,20 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
   
   createPoll: function() {
     var that = this;
-    var poll = this.collection.create({
-      body: this.$('#poll_body').val()
-      }, { wait: true, 
-        success: function() {
-          that.$('.choice-form-input').each( function(idx, el) {
-            poll.answerChoices().create({
-	      ord: idx,
-              poll_id: poll.id,
-              body: $(el).val()
-            }, { wait: true });
-          });
-          Backbone.history.navigate("/", { trigger: true });
-        },
-        error: function() {
-          that.$el.prepend("<div class='alert alert-danger' role='alert'><h4>Question cannot be blank</h4></div>");
-        }
-      }
-    );
+    var params = this.$("form").serializeJSON();
+    params["poll"].answer_choices_attributes.forEach(function(choice, i) {
+      choice.ord = i
+    });
+    console.log(params["poll"]);
+    var newPoll = new PollApp.Models.Poll(params["poll"]);
+    newPoll.save({}, {
+      success: function() {
+        that.collection.add(newPoll);
+	Backbone.history.navigate("/", { trigger : true });
+      },
+      error: function() {
+	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>Must enter a question and 2 or more answer choices</h4></div>");
+      }    
+    })
   }
 });

@@ -1,5 +1,5 @@
 class AnswerChoice < ActiveRecord::Base
-  validates :poll_id, :body, :ord, presence: true
+  validates :poll, :body, :ord, presence: true
 
   belongs_to :poll, dependent: :destroy
   

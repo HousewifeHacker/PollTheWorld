@@ -2,6 +2,8 @@ module Api
   class PollsController < ApiController
     # inherits current_user < ApiController < ApplicationController
     # authored_polls is an association on the User model
+    wrap_parameters(:poll, :include => [:body, :answer_choices_attributes])
+
     def create
       @poll = current_user.authored_polls.new(poll_params)
       
@@ -41,7 +43,7 @@ module Api
     private
     
     def poll_params
-      params.require(:poll).permit(:body)
+      params.require(:poll).permit(:body, :answer_choices_attributes => [:body, :ord])
     end    
   end
 end

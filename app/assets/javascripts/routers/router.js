@@ -21,7 +21,8 @@ PollApp.Routers.Router = Backbone.Router.extend({
   
   pollNew: function() {
     var view = new PollApp.Views.PollNew({
-      collection: PollApp.Collections.polls
+      collection: PollApp.Collections.polls,
+      model: new PollApp.Models.Poll()
     });
     this._swapView(view);
   },
