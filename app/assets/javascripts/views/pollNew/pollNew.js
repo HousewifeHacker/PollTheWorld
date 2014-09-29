@@ -12,6 +12,10 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     this.addAnswerChoice();
   },
 
+  errorLog: function() {
+    debugger;
+  },
+
   addAnswerChoice: function() {
     var view = new PollApp.Views.AnswerChoiceForm();
     this.addSubview('#poll-choices', view);
@@ -28,15 +32,21 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     var that = this;
     var poll = this.collection.create({
       body: this.$('#poll_body').val()
-    }, { wait: true, success: function() {
-      that.$('.choice-form-input').each( function(idx, el) {
-        poll.answerChoices().create({
-	  ord: idx,
-          poll_id: poll.id,
-          body: $(el).val()
-        }, { wait: true });
-      });
-      Backbone.history.navigate("/", { trigger: true });
-    }});
+      }, { wait: true, 
+        success: function() {
+          that.$('.choice-form-input').each( function(idx, el) {
+            poll.answerChoices().create({
+	      ord: idx,
+              poll_id: poll.id,
+              body: $(el).val()
+            }, { wait: true });
+          });
+          Backbone.history.navigate("/", { trigger: true });
+        },
+        error: function() {
+          that.$el.prepend("<div class='alert alert-danger' role='alert'><h4>Question cannot be blank</h4></div>");
+        }
+      }
+    );
   }
 });
