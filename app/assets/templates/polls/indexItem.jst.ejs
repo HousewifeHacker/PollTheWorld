@@ -1,8 +1,17 @@
-<a href="#/polls/<%= poll.id %>" class="poll-link">
-  <%= poll.escape("body") %>
-</a> 
-<a href="#/polls/<%= poll.id %>/results" class="poll-result-link">
-  <span class="glyphicon glyphicon-stats">
-</a>
+<h4>
+  <a href="#/polls/<%= poll.id %>" class="poll-link">
+    <% var pollBody = poll.escape("body") %>
+    <% if (pollBody.length > 40) { %>
+      <%= pollBody.slice(0, 40) + '...' %>
+    <% } else { %>
+      <%= pollBody %>
+    <% } %>
+  </a> 
+  <span title="View results" class="pull-right">
+    <a href="#/polls/<%= poll.id %>/results" class="poll-result-link">
+      <span class="glyphicon glyphicon-stats">
+    </a>
 
-<%= poll.total_responses() %>
+    <%= poll.total_responses() %>
+  </span>
+</h4>
