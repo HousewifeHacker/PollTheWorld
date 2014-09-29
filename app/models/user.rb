@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :responses,
             foreign_key: :respondent_id,
             class_name: 'Response'
-  has_many :answered_polls, through: :responses
+  has_many :answered_polls, through: :responses, source: :poll
 
   validates :session_token, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
