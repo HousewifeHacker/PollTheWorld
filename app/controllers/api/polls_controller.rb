@@ -31,7 +31,8 @@ module Api
     end
 
     def index
-      @polls = Poll.all
+      all_polls = Poll.all
+      @polls = all_polls.reject { |poll| poll.respondents.include?(current_user) }
       render :index
     end
     
