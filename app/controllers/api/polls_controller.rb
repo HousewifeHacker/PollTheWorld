@@ -8,6 +8,7 @@ module Api
       if @poll.save
         render json: @poll
       else
+        flash.now[:errors] = @poll.errors.full_messages
         render json: @poll.errors.full_messages, status: :unprocessable_entity
       end
     end

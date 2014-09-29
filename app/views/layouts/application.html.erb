@@ -55,12 +55,14 @@
     
     <!-- Flash Notices -->
     <% if flash[:errors] %>
-    <h3>Please fix the following errors:</h3>
-    <ul>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
+    <div class="alert alert-danger" role="alert">
+      <h3>Please fix the following errors:</h3>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
 
 

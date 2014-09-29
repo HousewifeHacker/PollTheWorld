@@ -4,18 +4,20 @@
     <h2>Create A Poll</h2>
   </div> <!-- end of poll header --> 
 
-  <form id="poll-new">
+  <form id="poll-new" class='form form-horizontal clearfix'>
     <div class="form-group">
-      <label for="poll_body" class="col-sm-3 control-label">Question:</label>
-      <div class="col-sm-9">
+      <label for="poll_body" class="col-xs-3 control-label">Question:</label>
+      <div class="col-xs-9">
         <input type="text" id="poll_body" class="form-control" name="poll[body]" autofocus>
       </div> <!-- end of poll body col -->
     </div> <!-- end of form group -->
-    <div class="col-sm-1">&nbsp;</div>
-    <div id="poll-choices" class="form-group col-sm-11">
+    <div id="poll-choices" class="">
+<!-- give each subview div class='form-group' -->
     </div>
   </form>
-    <button class="btn btn-primary new-choice">Add Answer Choice</button>
-    <button class="btn btn-primary submit-poll">Submit</button>
-
+  <div class="new-poll-buttons" style="text-align:right">
+    <a class="new-choice">Add Answer Choice</a><br>
+    <button class="btn btn-primary submit-poll" >Submit</button>
+  </div>
 </div>
+ 
