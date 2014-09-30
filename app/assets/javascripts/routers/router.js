@@ -6,14 +6,23 @@ PollApp.Routers.Router = Backbone.Router.extend({
   
   routes: {
     "": "pollsIndex",
+    "polls/answered" : "pollsAnswered",
     "polls/new": "pollNew",
     "polls/:id": "pollShow",
     "polls/:id/results": "pollResult"
   },
   
   pollsIndex: function() {
-    PollApp.Collections.polls.fetch();
+    PollApp.Collections.polls.fetch({data: { answered: false }});
     var view = new PollApp.Views.PollsIndex({
+      collection: PollApp.Collections.polls
+    });
+    this._swapView(view);
+  },
+
+  pollsAnswered: function() {
+    PollApp.Collections.polls.fetch({data: { answered: true }});
+    var view = new PollApp.Views.PollsAnswered({
       collection: PollApp.Collections.polls
     });
     this._swapView(view);

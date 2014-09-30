@@ -1,7 +1,6 @@
-/*global PollApp, JST */
-PollApp.Views.PollsIndex = Backbone.CompositeView.extend({
-  template: JST["polls/index"],
-  
+PollApp.Views.PollsAnswered = Backbone.CompositeView.extend({
+  template: JST["answered/index"],
+
   initialize: function() {
     this.listenTo(this.collection, "add", this.addItems);
     this.collection.each(this.addItems.bind(this));
@@ -16,18 +15,18 @@ PollApp.Views.PollsIndex = Backbone.CompositeView.extend({
       this.removeSubview("#menu", view)
     };
   },
-  
+
   addItems: function(poll) {
-    var view = new PollApp.Views.PollsIndexItem({
+    var view = new PollApp.Views.PollsAnsweredItem({
       model: poll
     });
     this.addSubview('#menu', view);
   },
-  
+
   render: function() {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
     this.attachSubviews();
     return this;
   }
-});
+})

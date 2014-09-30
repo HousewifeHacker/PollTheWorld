@@ -32,7 +32,13 @@ module Api
 
     def index
       all_polls = Poll.all
-      @polls = all_polls.reject { |poll| poll.respondents.include?(current_user) }
+      if params[:answered] == "false"
+        @polls = all_polls.reject do |poll| 
+         current_user.answered_polls.include?(poll)
+        end
+      else
+        @polls = current_user.answered_polls
+      end
       render :index
     end
     

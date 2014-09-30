@@ -1,0 +1,14 @@
+<td>
+  <a href="#/polls/<%= poll.id %>/results" class="poll-link">
+    <% var pollBody = poll.escape("body") %>
+    <% if (pollBody.length > 40) { %>
+      <%= pollBody.slice(0, 40) + '...' %>
+    <% } else { %>
+      <%= pollBody %>
+    <% } %>
+  </a>
+</td>
+
+<td>
+  <%= poll.answerChoices() %>
+</td>

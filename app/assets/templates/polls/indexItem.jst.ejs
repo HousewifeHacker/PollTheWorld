@@ -1,4 +1,4 @@
-<h4>
+<td>
   <a href="#/polls/<%= poll.id %>" class="poll-link">
     <% var pollBody = poll.escape("body") %>
     <% if (pollBody.length > 40) { %>
@@ -6,7 +6,10 @@
     <% } else { %>
       <%= pollBody %>
     <% } %>
-  </a> 
+  </a>
+</td>
+
+<td> 
   <span title="View results" class="pull-right">
     <a href="#/polls/<%= poll.id %>/results" class="poll-result-link">
       <span class="glyphicon glyphicon-stats">
@@ -14,4 +17,4 @@
 
     <%= poll.total_responses() %>
   </span>
-</h4>
+</td>
