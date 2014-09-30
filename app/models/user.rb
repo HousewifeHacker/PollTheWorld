@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :answered_polls, through: :responses, source: :poll
 
   validates :session_token, presence: true
-  validates :password, length: { minimum: 5, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, uniqueness: true, presence: true, unless: :guest?
   
   attr_reader :password

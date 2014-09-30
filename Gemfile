@@ -42,5 +42,13 @@ gem 'newrelic_rpm'
 gem 'bcrypt'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
-gem 'pusher'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+end
+
+group :test do
+  gem 'guard-rspec'
+end
