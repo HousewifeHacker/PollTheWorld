@@ -5,7 +5,7 @@ PollApp.Views.PollsIndexItem = Backbone.View.extend({
   tagName: "tr",
   
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render);
+   // this.listenTo(this.model, "sync", this.render);
   },
   
   render: function() {

@@ -10,5 +10,6 @@
 </td>
 
 <td>
-  <%= poll.answerChoices() %>
+  <% var response = poll.responses().findWhere( {respondent_id: CURRENT_USER_ID }) %>
+  <%= poll.answerChoices().get(response.get("answer_choice_id")).escape("body") %>
 </td>

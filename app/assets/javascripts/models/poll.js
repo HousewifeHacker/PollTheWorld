@@ -11,13 +11,27 @@ PollApp.Models.Poll = Backbone.Model.extend({
     return this._answerChoices;
   },
 
-  parse: function(response) {
-    if(response.answer_choices) {
-      this.answerChoices().set(response.answer_choices, { parse: true });
-      delete response.answer_choices;
+  responses: function() {
+    if (!this._responses) {
+      this._responses =
+        new PollApp.Collections.Responses([], { answerChoice: this });
+    }
+
+    return this._responses;
+  },
+
+  parse: function(res) {
+    if(res.answer_choices) {
+      this.answerChoices().set(res.answer_choices, { parse: true });
+      delete res.answer_choices;
+    }
+
+    if (res.responses) {
+      this.responses().set(res.responses, { parse: true });
+      delete res.responses;
     }
     
-    return response;
+    return res;
   },
   
   bodies: function() {

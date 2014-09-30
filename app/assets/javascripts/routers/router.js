@@ -21,9 +21,9 @@ PollApp.Routers.Router = Backbone.Router.extend({
   },
 
   pollsAnswered: function() {
-    PollApp.Collections.polls.fetch({data: { answered: true }});
+    PollApp.Collections.answeredPolls.fetch({data: { answered: true }});
     var view = new PollApp.Views.PollsAnswered({
-      collection: PollApp.Collections.polls
+      collection: PollApp.Collections.answeredPolls
     });
     this._swapView(view);
   },

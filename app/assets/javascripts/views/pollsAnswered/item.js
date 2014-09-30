@@ -4,11 +4,12 @@ PollApp.Views.PollsAnsweredItem = Backbone.View.extend({
   template: JST["answered/item"],
 
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render)
+    //this.listenTo(this.model, "sync", this.render)
   },
 
   render: function() {
-    var renderedContent = this.template({ poll: this.model })
+    var renderedContent = this.template({ 
+   poll: this.model })
     this.$el.html(renderedContent);
     return this;
   }

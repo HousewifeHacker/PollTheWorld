@@ -22,3 +22,4 @@ PollApp.Collections.Polls = Backbone.Collection.extend({
 });
 
 PollApp.Collections.polls = new PollApp.Collections.Polls();
+PollApp.Collections.answeredPolls = new PollApp.Collections.Polls();

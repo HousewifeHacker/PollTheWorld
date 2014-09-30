@@ -20,6 +20,7 @@ PollApp.Views.PollsAnswered = Backbone.CompositeView.extend({
     var view = new PollApp.Views.PollsAnsweredItem({
       model: poll
     });
+    console.log("add subview in answered");
     this.addSubview('#menu', view);
   },
 
