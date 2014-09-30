@@ -1,7 +1,7 @@
 /*global PollApp */
 PollApp.Models.Poll = Backbone.Model.extend({
   urlRoot: '/api/polls',
-  
+
   answerChoices: function() {
     if (!this._answerChoices) {
       this._answerChoices = 

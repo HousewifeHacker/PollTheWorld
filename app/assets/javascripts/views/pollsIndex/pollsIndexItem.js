@@ -4,13 +4,17 @@ PollApp.Views.PollsIndexItem = Backbone.View.extend({
 
   tagName: "tr",
   
-  initialize: function() {
-   // this.listenTo(this.model, "sync", this.render);
+  events: {
+    "click .delete-poll" : "removePoll"
   },
   
   render: function() {
     var renderedContent = this.template({ poll: this.model });
     this.$el.html(renderedContent);
     return this;
+  },
+
+  removePoll: function(event) {
+    this.model.destroy();
   }
 });

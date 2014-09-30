@@ -17,4 +17,9 @@
 
     <%= poll.total_responses() %>
   </span>
+  <% if (CURRENT_USER_ID === poll.get("user_id")) { %>
+    <a type="button" class="delete-poll">
+      <span title="Delete your poll" type="button" class="glyphicon glyphicon-trash btn btn-danger btn-xs">
+    </a>
+  <% } %>
 </td>

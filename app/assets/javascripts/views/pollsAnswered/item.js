@@ -3,8 +3,8 @@ PollApp.Views.PollsAnsweredItem = Backbone.View.extend({
 
   template: JST["answered/item"],
 
-  initialize: function() {
-    //this.listenTo(this.model, "sync", this.render)
+  events: {
+    "click .delete-poll" : "removePoll"
   },
 
   render: function() {
@@ -12,6 +12,9 @@ PollApp.Views.PollsAnsweredItem = Backbone.View.extend({
    poll: this.model })
     this.$el.html(renderedContent);
     return this;
-  }
+  },
 
+ removePoll: function(event) {
+    this.model.destroy();
+  }
 });
