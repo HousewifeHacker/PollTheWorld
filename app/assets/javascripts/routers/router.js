@@ -37,6 +37,7 @@ PollApp.Routers.Router = Backbone.Router.extend({
   },
   
   pollShow: function(id) {
+    // naming is a little weird. This is where users vote
     var model = PollApp.Collections.polls.getOrFetch(id);
     var view = new PollApp.Views.PollShow({
       model: model

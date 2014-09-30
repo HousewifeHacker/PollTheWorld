@@ -15,15 +15,6 @@ module Api
       end
     end
     
-    def update
-      @poll = Poll.find(params[:id])
-      if @poll.update_attributes(poll_params)
-        render json: @poll
-      else
-        render json: @poll.errors.full_messages, status: :unprocessable_entity
-      end
-    end
-    
     def destroy
       @poll = current_user.authored_polls.find(params[:id])
       @poll.try(:destroy)

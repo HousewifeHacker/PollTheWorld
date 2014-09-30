@@ -1,7 +1,9 @@
 /*global PollApp, JST */
 PollApp.Views.PollShow = Backbone.CompositeView.extend({
   template: JST['polls/show'],
-  
+
+  events: { 'click .vote-radio': 'castVote' },
+    
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     
@@ -21,5 +23,20 @@ PollApp.Views.PollShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviews();
     return this;
+  },
+  
+  castVote: function(event) {
+    var params = $(event.currentTarget).serializeJSON();
+    var vote = new PollApp.Models.Response(params);
+    var that = this;
+    vote.save({}, {
+      success: function() {
+        PollApp.Collections.responses.add(vote);
+        Backbone.history.navigate("polls/" + that.model.id + "/results", { trigger: true });
+      },
+      error: function() {
+	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>You cannot answer this poll again</h4></div>");
+      }    
+    });
   }
 });
