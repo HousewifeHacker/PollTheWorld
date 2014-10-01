@@ -22,14 +22,14 @@ module Api
     end
 
     def index
-      all_polls = Poll.all
       if params[:answered] == "false"
-        @polls = all_polls.reject do |poll| 
-         current_user.answered_polls.include?(poll)
-        end
+        @polls = Poll.where.not(id: current_user.answered_polls)
       else
         @polls = current_user.answered_polls
       end
+      @polls = @polls.page(params[:page]).per(15)
+      @page_number = params[:page]
+      @total_pages = @polls.total_pages
       render :index
     end
     

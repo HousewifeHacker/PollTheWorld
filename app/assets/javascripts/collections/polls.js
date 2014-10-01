@@ -18,6 +18,12 @@ PollApp.Collections.Polls = Backbone.Collection.extend({
       });
     }
     return poll;
+  },
+
+  parse: function(res) {
+    this.page_number = parseInt(res.page_number);
+    this.total_pages = parseInt(res.total_pages);
+    return res.models
   }
 });
 

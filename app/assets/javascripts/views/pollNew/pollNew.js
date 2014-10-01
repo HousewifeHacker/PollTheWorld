@@ -38,7 +38,7 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
 	Backbone.history.navigate("/", { trigger : true });
       },
       error: function() {
-	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>Must enter a question and 2 or more answer choices</h4></div>");
+	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>You must enter a question and 2 or more answer choices</h4></div>");
       }    
     })
   }
