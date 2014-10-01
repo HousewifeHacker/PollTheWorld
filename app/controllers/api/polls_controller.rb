@@ -23,9 +23,9 @@ module Api
 
     def index
       if params[:answered] == "false"
-        @polls = Poll.where.not(id: current_user.answered_polls)
+        @polls = Poll.where.not(id: current_user.answered_polls).order(id: :desc)
       else
-        @polls = current_user.answered_polls
+        @polls = current_user.answered_polls.order(id: :desc)
       end
       @polls = @polls.page(params[:page]).per(15)
       @page_number = params[:page]

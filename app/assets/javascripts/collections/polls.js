@@ -1,6 +1,7 @@
 /*global PollApp */
 PollApp.Collections.Polls = Backbone.Collection.extend({
   url: '/api/polls',
+
   model: PollApp.Models.Poll,
 
   getOrFetch: function(id) {
