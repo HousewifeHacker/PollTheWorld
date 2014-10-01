@@ -4,15 +4,7 @@ PollApp.Views.PollResult = Backbone.CompositeView.extend({
   
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
-    this.addAnswerChoices();
     this.addChart();
-  },
-  
-  addAnswerChoices: function() {
-    var view = new PollApp.Views.ResultIndex({
-      collection: this.model.answerChoices()
-    });
-    this.addSubview('#poll-choices', view);
   },
   
   addChart: function() {
