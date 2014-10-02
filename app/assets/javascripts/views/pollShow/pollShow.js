@@ -33,7 +33,9 @@ PollApp.Views.PollShow = Backbone.CompositeView.extend({
       success: function() {
 	PollApp.Collections.polls.remove(that.model);
 	PollApp.Collections.answeredPolls.add(that.model);
+	debugger;
         PollApp.Collections.responses.add(vote);
+	that.model.responses().add(vote);
         Backbone.history.navigate("polls/" + that.model.id + "/results", { trigger: true });
       },
       error: function() {

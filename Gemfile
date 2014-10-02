@@ -53,3 +53,7 @@ group :test do
   gem 'guard-rspec'
   gem 'shoulda-matchers', require: false
 end
+
+group :development do
+  gem 'bullet'
+end

@@ -27,7 +27,7 @@ module Api
       else
         @polls = current_user.answered_polls.order(id: :desc)
       end
-      @polls = @polls.page(params[:page]).per(15)
+      @polls = @polls.includes(:responses).page(params[:page]).per(15)
       @page_number = params[:page]
       @total_pages = @polls.total_pages
       render :index
