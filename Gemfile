@@ -42,6 +42,7 @@ gem 'bcrypt'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
+gem 'thin'
 
 group :development, :test do
   gem 'rspec-rails'
