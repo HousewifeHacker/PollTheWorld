@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :polls, except: [:new, :edit]
     resources :answer_choices, only: [:create, :update, :destroy]
     resources :responses, only: [:create]
+    post 'url', to: 'urls#shorten'
   end
 end

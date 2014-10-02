@@ -2,7 +2,10 @@
 PollApp.Views.PollShow = Backbone.CompositeView.extend({
   template: JST['polls/show'],
 
-  events: { 'click .vote-radio': 'castVote' },
+  events: { 
+    'click .vote-radio': 'castVote', 
+    'click .share-link': 'miniUrl'
+  },
     
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
@@ -42,5 +45,20 @@ PollApp.Views.PollShow = Backbone.CompositeView.extend({
 	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>You cannot answer this poll again</h4></div>");
       }    
     });
+  },
+
+  miniUrl: function() {
+    var that = this;
+    $.ajax({
+      url: "/api/url",
+      type: "POST",
+      data: { "long_url" : window.location.href },
+      success: function(data) {
+        that.$(".share-link").html(data.short_url);
+      },
+      error: function(data) {
+        that.$(".share-link").html("Try again later");
+      }
+    })
   }
 });
