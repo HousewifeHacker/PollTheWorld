@@ -1,4 +1,4 @@
-<td>
+<td class="col-xs-4">
   <% if (CURRENT_USER_ID === poll.get("user_id")) { %>
     <a type="button" class="delete-poll">
       <span title="Delete your poll" type="button" class="glyphicon glyphicon-trash btn btn-danger btn-xs">
@@ -14,7 +14,7 @@
   </a>
 </td>
 
-<td>
+<td class="col-xs-1">
   <% var response = poll.responses().findWhere( {respondent_id: CURRENT_USER_ID }) %>
   <%= poll.answerChoices().get(response.get("answer_choice_id")).escape("body") %>
 </td>
