@@ -1,12 +1,13 @@
 <div class="row">
-  <div id="poll-container" class="col-xs-4 col-xs-offset-4">
-    <a href="#" class="home-link">Back to Polls</a>
+  <div id="poll-container" class="col-xs-6 col-xs-offset-3">
+    <a href="#" class="pull-left home-link">Back to Polls</a>
     <span class="pull-right share-link" title="Get short url"><a>Share this</a></span>
+    <div class="clearfix"></div>
     <div id="poll-header">
       <h2><%= poll.escape('body') %></h2>
     </div>
   
-    <div id="poll-choices">
+    <div id="poll-choices" class="col-xs-8 col-xs-offset-2">
     </div>
   </div>
 </div>
