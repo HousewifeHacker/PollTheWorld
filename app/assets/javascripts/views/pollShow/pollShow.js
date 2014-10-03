@@ -34,14 +34,18 @@ PollApp.Views.PollShow = Backbone.CompositeView.extend({
     var that = this;
     vote.save({}, {
       success: function() {
-	PollApp.Collections.polls.remove(that.model);
-	PollApp.Collections.answeredPolls.unshift(that.model);
+        PollApp.Collections.polls.remove(that.model);
+        PollApp.Collections.answeredPolls.unshift(that.model);
         PollApp.Collections.responses.add(vote);
-	that.model.responses().add(vote);
+        that.model.responses().add(vote);
         Backbone.history.navigate("polls/" + that.model.id + "/results", { trigger: true });
       },
       error: function() {
-	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>You cannot answer this poll again</h4></div>");
+        that.$el.prepend(
+          "<div class='alert alert-danger' role='alert' style='text-align: center'>
+          <h4>You cannot answer this poll again</h4>
+          </div>"
+        );
       }    
     });
   },
