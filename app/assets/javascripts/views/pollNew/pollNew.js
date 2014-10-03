@@ -29,18 +29,18 @@ PollApp.Views.PollNew = Backbone.CompositeView.extend({
     var that = this;
     var params = this.$("form").serializeJSON();
     params["poll"].answer_choices_attributes.forEach(function(choice, i) {
-      choice.ord = i
+      choice.ord = i;
     });
     console.log(params["poll"]);
     var newPoll = new PollApp.Models.Poll(params["poll"]);
     newPoll.save({}, {
       success: function() {
-        that.collection.add(newPoll);
+        that.collection.unshift(newPoll);
 	Backbone.history.navigate("/", { trigger : true });
       },
       error: function() {
 	that.$el.prepend("<div class='alert alert-danger' role='alert' style='text-align: center'><h4>You must enter a question and 2 or more answer choices</h4></div>");
       }    
-    })
+    });
   }
 });
