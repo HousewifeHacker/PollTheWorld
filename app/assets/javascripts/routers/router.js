@@ -15,8 +15,6 @@ PollApp.Routers.Router = Backbone.Router.extend({
   pollsIndex: function() {
     PollApp.Collections.polls.fetch({
       data: { answered: false, page: 1 },
-      remove: false,
-      wait: true
     });
     var view = new PollApp.Views.PollsIndex({
       collection: PollApp.Collections.polls
@@ -27,8 +25,6 @@ PollApp.Routers.Router = Backbone.Router.extend({
   pollsAnswered: function() {
     PollApp.Collections.answeredPolls.fetch({
       data: { answered: true, page: 1 },
-      remove: false,
-      wait: true
     });
     var view = new PollApp.Views.PollsAnswered({
       collection: PollApp.Collections.answeredPolls
