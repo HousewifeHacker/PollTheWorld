@@ -40,4 +40,17 @@
 
 .glyphicon-move, .glyphicon-remove {
   width: 10%;
+  text-align: center;
+}
+
+.glyphicon-remove {
+  color: #a94442;
+}
+
+.glyphicon-move {
+  color: #428bca;
+}
+
+.btn-danger {
+  background-color: #a94442;
 }
