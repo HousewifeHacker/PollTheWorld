@@ -2,6 +2,11 @@
 
 http://polltheworld.herokuapp.com/
 
+=== SetUp
+- Install Ruby
+- gem install Rails
+- rails server
+
 === Technologies
 - Ruby on Rails
 - Backbone.js
@@ -16,6 +21,7 @@ http://polltheworld.herokuapp.com/
 - Kaminari
 - BCrypt
 - Thin
+
 === Future Feature Roadmap
 - Add GPS column to Responses from IP Address
 - Mark responses locations with Google Maps API per Poll

@@ -1,1 +1,4 @@
-<input type="radio" name="answer_choice_id" value="<%= answerChoice.escape('id') %>" class="vote-radio"><%= answerChoice.escape('body') %><br>
+<label class="choice-label">
+  <input type="radio" name="answer_choice_id" value="<%= answerChoice.escape('id') %>" class="vote-radio">
+  <%= answerChoice.escape('body') %><br>
+</label>

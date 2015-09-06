@@ -17,7 +17,7 @@
 @import "bootstrap";
 
 #poll-container {
-  min-height: 300px;
+  padding: 20px;
   background-color: #F0F0F0;
   border-radius: 25px;
   text-align:center;
@@ -41,7 +41,16 @@
   font-size: 1.8em;
 }
 
+#poll-choices {
+  text-align: left;
+}
 
+.choice-label {
+  cursor: pointer;
+  &:hover {
+    padding-left: 4px;
+  }
+}
 
 input[type="radio"] {
   margin-right: 10px;

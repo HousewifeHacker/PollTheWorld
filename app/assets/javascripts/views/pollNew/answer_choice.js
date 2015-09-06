@@ -2,8 +2,6 @@
 PollApp.Views.AnswerChoiceForm = Backbone.View.extend({
   template: JST["new/item"],
 
-  className: "form-group",
-
   events: {
     'click .remove-choice' : 'removeAnswerChoice',
   },
