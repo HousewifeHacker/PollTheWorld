@@ -17,6 +17,7 @@ PollApp.Views.PollsAnswered = Backbone.CompositeView.extend({
   },
 
   addItems: function(poll) {
+    this.$('#noPolls').hide();
     var view = new PollApp.Views.PollsAnsweredItem({
       model: poll
     });
